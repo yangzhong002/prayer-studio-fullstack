@@ -1,13 +1,24 @@
 import type { GenerateResponse } from '@/lib/api';
 
-export function OutputPanel({ result }: { result: GenerateResponse | null }) {
+function Spinner() {
+  return (
+    <div className="spinnerWrapper">
+      <div className="spinner" />
+      <div className="muted" style={{ marginTop: 10 }}>Generating...</div>
+    </div>
+  );
+}
+
+export function OutputPanel({ result, loading }: { result: GenerateResponse | null; loading: boolean }) {
   return (
     <div className="rightPanel">
-      <div className="resultsHeader">Output: relevant scripture, sermon, and prayer</div>
+      <div className="resultsHeader">Output: relevant scripture, sermon, and prayer. It may take some time due to RAG and LLM API invocation.</div>
       <div className="outputs">
         <div className="rightPanelCard">
           <div className="cardTitle">Holy Scripture</div>
-          {!result ? (
+          {loading ? (
+            <Spinner />
+          ) : !result ? (
             <div className="muted">Relevant scripture passages will appear here after generation.</div>
           ) : (
             <div className="contentBox">
@@ -23,16 +34,24 @@ export function OutputPanel({ result }: { result: GenerateResponse | null }) {
 
         <div className="rightPanelCard">
           <div className="cardTitle">Generated Sermon</div>
-          <div className="contentBox">
-            {result ? result.sermon : 'A sermon inspired by the selected pastor style will appear here after generation.'}
-          </div>
+          {loading ? (
+            <Spinner />
+          ) : (
+            <div className="contentBox">
+              {result ? result.sermon : 'A sermon inspired by the selected pastor style will appear here after generation.'}
+            </div>
+          )}
         </div>
 
         <div className="rightPanelCard">
           <div className="cardTitle">Generated Prayer</div>
-          <div className="contentBox">
-            {result ? result.prayer : 'A prayer based on your situation and selected style will appear here after generation.'}
-          </div>
+          {loading ? (
+            <Spinner />
+          ) : (
+            <div className="contentBox">
+              {result ? result.prayer : 'A prayer based on your situation and selected style will appear here after generation.'}
+            </div>
+          )}
         </div>
       </div>
     </div>

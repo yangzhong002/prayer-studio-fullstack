@@ -114,7 +114,7 @@ export function GenerationForm({ styles }: { styles: StyleOption[] }) {
         )}
       </form>
 
-      <OutputPanel result={result} />
+      <OutputPanel result={result} loading={loading} />
     </div>
   );
 }
