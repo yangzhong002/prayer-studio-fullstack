@@ -15,7 +15,6 @@ export function OutputPanel({ result }: { result: GenerateResponse | null }) {
                 <div key={`${item.reference}-${index}`} className="scriptureItem">
                   <div className="scriptureRef">{item.reference}</div>
                   <div style={{ whiteSpace: 'pre-wrap' }}>{item.text}</div>
-                  <div className="muted" style={{ marginTop: 8 }}>{item.relevance_note}</div>
                 </div>
               ))}
             </div>
