@@ -41,8 +41,8 @@ export function GenerationForm({ styles }: { styles: StyleOption[] }) {
       <form className="leftPanel" onSubmit={onSubmit}>
         <div className="topBar">
           <div>
-            <div style={{ fontSize: 18, fontWeight: 800 }}>Prayer Studio</div>
-            <div className="muted">Input + Style Tags + Triple Output</div>
+            <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 4 }}>Prayer Studio</div>
+            <div className="muted">Input + Style Tags = Triple Output</div>
           </div>
         </div>
 
@@ -96,6 +96,16 @@ export function GenerationForm({ styles }: { styles: StyleOption[] }) {
         <button type="submit" className="primaryButton" disabled={loading}>
           {loading ? 'Generating…' : 'Generate Scripture / Sermon / Prayer'}
         </button>
+
+        <a
+          href="https://buymeacoffee.com/yangzhong"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bmcButton"
+        >
+          <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="" width="15" height="21" />
+          <span>Buy me a coffee</span>
+        </a>
 
         {error && (
           <div className="sectionCard" style={{ color: '#fca5a5' }}>

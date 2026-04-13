@@ -16,11 +16,12 @@ a { color: inherit; text-decoration: none; }
 button, input, textarea, select { font: inherit; }
 
 .page {
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
   grid-template-columns: 380px 1fr;
   gap: 14px;
   padding: 14px;
+  overflow: hidden;
 }
 
 .leftPanel, .rightPanelCard {
@@ -35,6 +36,7 @@ button, input, textarea, select { font: inherit; }
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow-y: auto;
 }
 
 .sectionCard {
@@ -110,9 +112,8 @@ button, input, textarea, select { font: inherit; }
 .rightPanel {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  max-height: 100vh;
-  overflow-y: auto;
+  gap: 8px;
+  min-height: 0;
 }
 
 .resultsHeader {
@@ -124,12 +125,17 @@ button, input, textarea, select { font: inherit; }
 .outputs {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
 }
 
 .rightPanelCard {
-  padding: 18px;
-  min-height: 260px;
+  padding: 14px;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .cardTitle {
@@ -144,6 +150,9 @@ button, input, textarea, select { font: inherit; }
   white-space: pre-wrap;
   line-height: 1.55;
   font-size: 13px;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
 }
 
 .scriptureItem {
@@ -154,6 +163,27 @@ button, input, textarea, select { font: inherit; }
 .scriptureItem:first-child { border-top: none; padding-top: 0; }
 .scriptureRef { font-weight: 700; margin-bottom: 6px; }
 .topBar { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.bmcButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  align-self: center;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #ffdd00;
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.bmcButton:hover {
+  opacity: 0.85;
+}
+
 .subtlePill {
   padding: 8px 12px;
   border-radius: 999px;
