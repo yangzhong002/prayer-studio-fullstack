@@ -3,7 +3,9 @@ from typing import List, Literal, Optional
 from pydantic import BaseModel, Field
 
 
-PastorStyle = Literal["spurgeon", "lloyd-jones", "tozer", "piper", "keller", "biblical", "simple"]
+PastorStyle = Literal[
+    "spurgeon", "lloyd-jones", "tozer", "piper", "keller", "biblical", "simple"
+]
 Tone = Literal["reverent", "tender", "solemn", "hopeful", "urgent"]
 Length = Literal["short", "medium", "long"]
 

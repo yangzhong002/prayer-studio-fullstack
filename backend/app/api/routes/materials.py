@@ -17,7 +17,11 @@ settings = get_settings()
 
 @router.get("/sources", response_model=list[MaterialSourceOut])
 def list_sources(db: Session = Depends(get_db)):
-    rows = db.execute(select(MaterialSource).order_by(MaterialSource.id.desc())).scalars().all()
+    rows = (
+        db.execute(select(MaterialSource).order_by(MaterialSource.id.desc()))
+        .scalars()
+        .all()
+    )
     return [
         MaterialSourceOut(
             id=row.id,

@@ -23,6 +23,6 @@ def get_db():
 def init_db() -> None:
     with engine.begin() as conn:
         conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
-    from app.models.db_models import MaterialSource  # noqa: WPS433
+    from app.models.db_models import MaterialSource  # noqa: F401, WPS433
 
     Base.metadata.create_all(bind=engine)

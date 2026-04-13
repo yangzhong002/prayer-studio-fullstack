@@ -39,7 +39,9 @@ _LLM_OUTPUT_SCHEMA = {
 class LLMService:
     def __init__(self) -> None:
         settings = get_settings()
-        self.client = OpenAI(api_key=settings.openai_api_key) if settings.openai_api_key else None
+        self.client = (
+            OpenAI(api_key=settings.openai_api_key) if settings.openai_api_key else None
+        )
         self.model = settings.openai_model
 
     def generate_structured_output(self, prompt: str) -> GenerationResponse:

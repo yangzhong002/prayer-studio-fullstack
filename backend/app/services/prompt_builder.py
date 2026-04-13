@@ -7,10 +7,13 @@ def build_generation_prompt(
     request: GenerateRequest,
     scripture_chunks: list[dict],
 ) -> str:
-    style_line = ", ".join(request.selected_styles) if request.selected_styles else "biblical"
+    style_line = (
+        ", ".join(request.selected_styles) if request.selected_styles else "biblical"
+    )
 
     scripture_block = "\n\n".join(
-        f"- {item['metadata'].get('title', 'Untitled')}: {item['text'][:500]}" for item in scripture_chunks
+        f"- {item['metadata'].get('title', 'Untitled')}: {item['text'][:500]}"
+        for item in scripture_chunks
     )
 
     return dedent(
@@ -36,6 +39,6 @@ def build_generation_prompt(
         - Each item in the scripture field must contain reference, text, and relevance_note.
 
         Available scripture materials:
-        {scripture_block or 'None'}
+        {scripture_block or "None"}
         """
     ).strip()

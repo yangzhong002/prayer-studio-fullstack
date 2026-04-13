@@ -31,13 +31,17 @@ class RAGService:
             embed_dim=1536,
             hybrid_search=False,
         )
-        self.storage_context = StorageContext.from_defaults(vector_store=self.vector_store)
+        self.storage_context = StorageContext.from_defaults(
+            vector_store=self.vector_store
+        )
 
     def _host_from_conn(self) -> str:
         return self.settings.pgvector_connection_string.split("@")[1].split(":")[0]
 
     def _port_from_conn(self) -> int:
-        return int(self.settings.pgvector_connection_string.rsplit(":", 1)[1].split("/")[0])
+        return int(
+            self.settings.pgvector_connection_string.rsplit(":", 1)[1].split("/")[0]
+        )
 
     def _user_from_conn(self) -> str:
         return self.settings.pgvector_connection_string.split("//")[1].split(":")[0]
@@ -60,7 +64,9 @@ class RAGService:
         nodes = self.splitter.get_nodes_from_documents(documents)
         VectorStoreIndex(nodes, storage_context=self.storage_context)
 
-    def retrieve(self, query: str, top_k: int = 5, filters: dict | None = None) -> list[dict]:
+    def retrieve(
+        self, query: str, top_k: int = 5, filters: dict | None = None
+    ) -> list[dict]:
         index = VectorStoreIndex.from_vector_store(self.vector_store)
         retriever = index.as_retriever(similarity_top_k=top_k)
         nodes = retriever.retrieve(query)
