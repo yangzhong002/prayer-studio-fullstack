@@ -41,7 +41,7 @@ export function GenerationForm({ styles }: { styles: StyleOption[] }) {
       <form className="leftPanel" onSubmit={onSubmit}>
         <div className="topBar">
           <div>
-            <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 4 }}>Prayer Studio</div>
+            <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 4 }}>Pastor Studio AI</div>
             <div className="muted">Input + Style Tags = Triple Output</div>
           </div>
         </div>
