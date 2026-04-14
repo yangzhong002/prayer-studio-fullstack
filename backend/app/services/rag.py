@@ -1,3 +1,5 @@
+from urllib.parse import urlparse
+
 from llama_index.core import Document, Settings, StorageContext, VectorStoreIndex
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.embeddings.openai import OpenAIEmbedding
@@ -21,12 +23,13 @@ class RAGService:
             chunk_size=self.settings.chunk_size,
             chunk_overlap=self.settings.chunk_overlap,
         )
+        parsed = urlparse(self.settings.pgvector_connection_string)
         self.vector_store = PGVectorStore.from_params(
-            database="prayer_studio",
-            host=self._host_from_conn(),
-            password=self._password_from_conn(),
-            port=self._port_from_conn(),
-            user=self._user_from_conn(),
+            database=parsed.path.lstrip("/"),
+            host=parsed.hostname,
+            password=parsed.password,
+            port=parsed.port,
+            user=parsed.username,
             table_name="prayer_chunks",
             embed_dim=1536,
             hybrid_search=False,
@@ -34,20 +37,6 @@ class RAGService:
         self.storage_context = StorageContext.from_defaults(
             vector_store=self.vector_store
         )
-
-    def _host_from_conn(self) -> str:
-        return self.settings.pgvector_connection_string.split("@")[1].split(":")[0]
-
-    def _port_from_conn(self) -> int:
-        return int(
-            self.settings.pgvector_connection_string.rsplit(":", 1)[1].split("/")[0]
-        )
-
-    def _user_from_conn(self) -> str:
-        return self.settings.pgvector_connection_string.split("//")[1].split(":")[0]
-
-    def _password_from_conn(self) -> str:
-        return self.settings.pgvector_connection_string.split(":", 2)[2].split("@")[0]
 
     def build_or_update_index_for_source(self, source: MaterialSource) -> None:
         documents = [
