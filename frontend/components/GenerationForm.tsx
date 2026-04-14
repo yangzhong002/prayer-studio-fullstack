@@ -11,7 +11,7 @@ export function GenerationForm({ styles }: { styles: StyleOption[] }) {
   const [selectedStyles, setSelectedStyles] = useState<string[]>(['spurgeon']);
   const [tone, setTone] = useState('reverent');
   const [length, setLength] = useState('medium');
-  const [language, setLanguage] = useState<'zh' | 'en'>('en');
+  const [language, setLanguage] = useState<'es' | 'en'>('en');
   const [result, setResult] = useState<GenerateResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,7 +41,7 @@ export function GenerationForm({ styles }: { styles: StyleOption[] }) {
       <form className="leftPanel" onSubmit={onSubmit}>
         <div className="topBar">
           <div>
-            <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 4 }}>Pastor Studio AI</div>
+            <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 4 }}>✝️ Pastor Studio AI</div>
             <div className="muted">Input + Style Tags = Triple Output</div>
           </div>
         </div>
@@ -86,9 +86,9 @@ export function GenerationForm({ styles }: { styles: StyleOption[] }) {
 
           <div>
             <div className="sectionTitle">Output language</div>
-            <select className="select" value={language} onChange={(e) => setLanguage(e.target.value as 'zh' | 'en')}>
-              <option value="zh">中文</option>
+            <select className="select" value={language} onChange={(e) => setLanguage(e.target.value as 'es' | 'en')}>
               <option value="en">English</option>
+              <option value="es">Español</option>
             </select>
           </div>
         </div>

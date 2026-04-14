@@ -18,7 +18,7 @@ export type GeneratePayload = {
   selected_styles: string[];
   tone: string;
   length: string;
-  language: 'zh' | 'en';
+  language: 'es' | 'en';
 };
 
 export type ScriptureItem = {

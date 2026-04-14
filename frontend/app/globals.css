@@ -143,6 +143,9 @@ button, input, textarea, select { font: inherit; }
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .muted { color: var(--muted); }

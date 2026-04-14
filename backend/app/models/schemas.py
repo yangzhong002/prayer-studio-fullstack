@@ -15,7 +15,7 @@ class GenerateRequest(BaseModel):
     selected_styles: List[PastorStyle] = Field(default_factory=list)
     tone: Tone = "reverent"
     length: Length = "medium"
-    language: Literal["zh", "en"] = "en"
+    language: Literal["es", "en"] = "en"
 
 
 class ScriptureItem(BaseModel):

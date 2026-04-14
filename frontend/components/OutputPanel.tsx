@@ -1,10 +1,11 @@
+import { BookOpen, Church, HandHeart } from 'lucide-react';
 import type { GenerateResponse } from '@/lib/api';
 
-function Spinner() {
+function Spinner({ label = 'Generating...' }: { label?: string }) {
   return (
     <div className="spinnerWrapper">
       <div className="spinner" />
-      <div className="muted" style={{ marginTop: 10 }}>Generating...</div>
+      <div className="muted" style={{ marginTop: 10 }}>{label}</div>
     </div>
   );
 }
@@ -15,9 +16,9 @@ export function OutputPanel({ result, loading }: { result: GenerateResponse | nu
       <div className="resultsHeader">Output generation may take about 10-20 seconds due to RAG and LLM API invocation.</div>
       <div className="outputs">
         <div className="rightPanelCard">
-          <div className="cardTitle">Holy Scripture</div>
+          <div className="cardTitle"><BookOpen size={16} /> Holy Scripture Semantically Related</div>
           {loading ? (
-            <Spinner />
+            <Spinner label="Semantically Searching..." />
           ) : !result ? (
             <div className="muted">Relevant scripture passages will appear here after generation.</div>
           ) : (
@@ -33,7 +34,7 @@ export function OutputPanel({ result, loading }: { result: GenerateResponse | nu
         </div>
 
         <div className="rightPanelCard">
-          <div className="cardTitle">Generated Sermon</div>
+          <div className="cardTitle"><Church size={16} /> Generated Sermon</div>
           {loading ? (
             <Spinner />
           ) : (
@@ -44,7 +45,7 @@ export function OutputPanel({ result, loading }: { result: GenerateResponse | nu
         </div>
 
         <div className="rightPanelCard">
-          <div className="cardTitle">Generated Prayer</div>
+          <div className="cardTitle"><HandHeart size={16} /> Generated Prayer</div>
           {loading ? (
             <Spinner />
           ) : (
