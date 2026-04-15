@@ -48,8 +48,15 @@ export async function generateContent(payload: GeneratePayload): Promise<Generat
   });
 
   if (!res.ok) {
-    const detail = await res.text();
-    throw new Error(detail || 'Generation failed');
+    const text = await res.text();
+    let message = 'Generation failed';
+    try {
+      const json = JSON.parse(text);
+      message = json.detail || message;
+    } catch {
+      message = text || message;
+    }
+    throw new Error(message);
   }
 
   return res.json();
