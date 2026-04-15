@@ -47,7 +47,7 @@ export function GenerationForm({ styles }: { styles: StyleOption[] }) {
         </div>
 
         <div className="sectionCard">
-          <div className="sectionTitle">Describe your situation, struggles, questions, or thoughts</div>
+          <div className="sectionTitle" style={{ fontSize: 13 }}>Describe your situation, struggles, questions, or thoughts</div>
           <textarea
             className="textarea"
             value={userInput}
@@ -107,7 +107,7 @@ export function GenerationForm({ styles }: { styles: StyleOption[] }) {
             <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="" width="15" height="21" />
             <span>Buy me a coffee</span>
           </a>
-          <span className="muted" style={{ fontSize: 11 }}>LLM tokens cost money — maybe you could help me feed them...</span>
+          <span className="muted" style={{ fontSize: 11 }}>LLM tokens cost money — maybe you could help me feed them!</span>
         </div>
 
         {error && (

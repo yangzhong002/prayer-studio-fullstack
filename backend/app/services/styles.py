@@ -13,9 +13,19 @@ STYLE_OPTIONS = [
         description="Methodical, logically rigorous, strong spiritual diagnosis",
     ),
     StyleOption(
-        id="tozer",
-        label="Tozer",
-        description="Reverent, introspective, deep spiritual tension",
+        id="fulton-sheen",
+        label="Fulton Sheen",
+        description="Eloquent, dramatic, Catholic apologetics with clarity and wit",
+    ),
+    StyleOption(
+        id="barron",
+        label="Bishop Barron",
+        description="Intellectually rich, culturally aware, Catholic evangelical voice",
+    ),
+    StyleOption(
+        id="pope-francis",
+        label="Pope Francis",
+        description="Pastoral, merciful, simple language rooted in compassion",
     ),
     StyleOption(
         id="piper",

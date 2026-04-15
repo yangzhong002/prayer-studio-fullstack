@@ -18,7 +18,7 @@ button, input, textarea, select { font: inherit; }
 .page {
   height: 100vh;
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: 340px 1fr;
   gap: 14px;
   padding: 14px;
   overflow: hidden;
@@ -43,15 +43,15 @@ button, input, textarea, select { font: inherit; }
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 12px;
+  padding: 10px;
 }
 
-.sectionTitle { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.sectionTitle { font-size: 11px; color: var(--muted); margin-bottom: 5px; }
 .textarea {
   width: 100%;
-  min-height: 120px;
-  padding: 10px 12px;
-  font-size: 13px;
+  min-height: 100px;
+  padding: 8px 10px;
+  font-size: 12px;
   resize: vertical;
   border-radius: 12px;
   border: 1px solid var(--border);
@@ -61,8 +61,8 @@ button, input, textarea, select { font: inherit; }
 
 .input, .select {
   width: 100%;
-  padding: 8px 10px;
-  font-size: 13px;
+  padding: 6px 8px;
+  font-size: 12px;
   border-radius: 10px;
   border: 1px solid var(--border);
   background: var(--panel-2);
@@ -76,8 +76,8 @@ button, input, textarea, select { font: inherit; }
 }
 
 .tag {
-  padding: 6px 10px;
-  font-size: 12px;
+  padding: 4px 8px;
+  font-size: 11px;
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--chip);
@@ -104,8 +104,8 @@ button, input, textarea, select { font: inherit; }
   border-radius: 12px;
   background: linear-gradient(180deg, var(--accent), var(--accent-2));
   color: white;
-  padding: 10px 14px;
-  font-size: 13px;
+  padding: 8px 12px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
 }
