@@ -20,7 +20,8 @@ class GenerationPipeline:
 
         prompt = build_generation_prompt(request, scripture_chunks)
         result = self.llm.generate_structured_output(prompt)
-        result.retrieval_debug = {
-            "scripture_chunks": [item["metadata"] for item in scripture_chunks],
-        }
+        if self.settings.app_env != "production":
+            result.retrieval_debug = {
+                "scripture_chunks": [item["metadata"] for item in scripture_chunks],
+            }
         return result
