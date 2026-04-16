@@ -79,5 +79,5 @@ class LLMService:
                 }
             ],
             sermon=f"[Fallback sermon draft]\n\n{teaser}",
-            prayer="[Fallback prayer draft]\n\n主啊，求你按真理引导我们。阿们。",
+            prayer="[Fallback prayer draft]\n\nLord, guide us in Your truth and sustain us by Your grace. Amen.",
         )
