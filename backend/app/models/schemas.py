@@ -4,7 +4,15 @@ from pydantic import BaseModel, Field
 
 
 PastorStyle = Literal[
-    "spurgeon", "lloyd-jones", "fulton-sheen", "barron", "pope-francis", "piper", "keller", "biblical", "simple"
+    "spurgeon",
+    "lloyd-jones",
+    "fulton-sheen",
+    "barron",
+    "pope-francis",
+    "piper",
+    "keller",
+    "biblical",
+    "simple",
 ]
 Tone = Literal["reverent", "tender", "solemn", "hopeful", "urgent"]
 Length = Literal["short", "medium", "long"]
