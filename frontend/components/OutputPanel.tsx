@@ -1,4 +1,4 @@
-import { BookOpen, Church, HandHeart } from 'lucide-react';
+import { BookOpen, Church, HandHeart, Info } from 'lucide-react';
 import type { GenerateResponse } from '@/lib/api';
 
 function Spinner({ label = 'Generating...' }: { label?: string }) {
@@ -13,7 +13,10 @@ function Spinner({ label = 'Generating...' }: { label?: string }) {
 export function OutputPanel({ result, loading }: { result: GenerateResponse | null; loading: boolean }) {
   return (
     <div className="rightPanel">
-      <div className="resultsHeader">Output generation may take about 10-20 seconds due to RAG and LLM API invocation.</div>
+      <div className="resultsHeader">
+        <Info size={16} />
+        <span>Output generation may take about 10-20 seconds due to RAG and LLM API invocation.</span>
+      </div>
       <div className="outputs">
         <div className="rightPanelCard">
           <div className="cardTitle"><BookOpen size={16} /> Holy Scripture Semantically Related</div>
