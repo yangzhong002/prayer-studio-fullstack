@@ -184,26 +184,6 @@ button, input, textarea, select { font: inherit; }
 .scriptureItem:first-child { border-top: none; padding-top: 0; }
 .scriptureRef { font-weight: 700; margin-bottom: 6px; }
 .topBar { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-.bmcButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  align-self: center;
-  padding: 6px 12px;
-  border-radius: 8px;
-  background: #ffdd00;
-  color: #000;
-  font-size: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: opacity 0.15s;
-}
-
-.bmcButton:hover {
-  opacity: 0.85;
-}
 
 .subtlePill {
   padding: 8px 12px;

@@ -97,19 +97,6 @@ export function GenerationForm({ styles }: { styles: StyleOption[] }) {
           {loading ? 'Generating…' : 'Generate Scripture / Sermon / Prayer'}
         </button>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <a
-            href="https://buymeacoffee.com/yangzhong"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bmcButton"
-          >
-            <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="" width="15" height="21" />
-            <span>Buy me a coffee</span>
-          </a>
-          <span className="muted" style={{ fontSize: 11 }}>LLM tokens cost money — maybe you could help me feed them!</span>
-        </div>
-
         {error && (
           <div className="sectionCard" style={{ color: '#fca5a5' }}>
             {error}
